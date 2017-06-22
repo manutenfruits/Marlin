@@ -115,6 +115,27 @@ applet/
 *.dSYM/
 *.su
 
-#PlatformIO files/dirs
+# PlatformIO files/dirs
+.pio*
+lib/readme.txt
+
+#Visual Studio
+*.sln
+*.vcxproj
+*.vcxproj.filters
+Marlin/Release/
+Marlin/Debug/
+Marlin/__vm/
+Marlin/.vs/
+
+#cmake
+CMakeLists.txt
+Marlin/CMakeLists.txt
+CMakeListsPrivate.txt
+
+#CLion
+cmake-build-*
 .pioenvs
-.piolib
+.piolibdeps
+.clang_complete
+.gcc-flags.json
