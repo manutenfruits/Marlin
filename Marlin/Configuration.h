@@ -37,8 +37,8 @@
  */
 
  /*
- Send: M501
-Recv: echo:V38 stored settings retrieved (453 bytes; crc 20799)
+Send: M501
+Recv: echo:V40 stored settings retrieved (498 bytes; crc 30427)
 Recv: echo:  G21    ; Units in mm
 Recv: echo:  M149 C ; Units in Celsius
 Recv:
@@ -46,9 +46,9 @@ Recv: echo:Filament settings: Disabled
 Recv: echo:  M200 D3.00
 Recv: echo:  M200 D0
 Recv: echo:Steps per unit:
-Recv: echo:  M92 X100.00 Y100.00 Z4000.00 E147.05
+Recv: echo:  M92 X100.00 Y100.00 Z400.00 E147.05
 Recv: echo:Maximum feedrates (units/s):
-Recv: echo:  M203 X300.00 Y300.00 Z2.00 E25.00
+Recv: echo:  M203 X300.00 Y300.00 Z5.00 E25.00
 Recv: echo:Maximum Acceleration (units/s2):
 Recv: echo:  M201 X3000 Y3000 Z100 E10000
 Recv: echo:Acceleration (units/s2): P<print_accel> R<retract_accel> T<travel_accel>
@@ -58,15 +58,14 @@ Recv: echo:  M205 S0.00 T0.00 B20000 X20.00 Y20.00 Z0.40 E5.00
 Recv: echo:Home offset:
 Recv: echo:  M206 X0.00 Y0.00 Z0.00
 Recv: echo:Auto Bed Leveling:
-Recv: echo:  M420 S0 Z10.00
+Recv: echo:  M420 S0 Z0.00
 Recv: echo:Material heatup parameters:
 Recv: echo:  M145 S0 H180 B70 F0
 Recv:   M145 S1 H240 B110 F0
 Recv: echo:PID settings:
-Recv: echo:  M301 P22.20 I1.08 D114.00
+Recv: echo:  M301 P27.11 I2.65 D69.41
 Recv: echo:Z-Probe Offset (mm):
 Recv: echo:  M851 Z-3.10
-Recv: ok
  */
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
@@ -560,14 +559,14 @@ Recv: ok
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 4000, 147.05 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 147.05 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 2, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -716,7 +715,7 @@ Recv: ok
  */
 #define X_PROBE_OFFSET_FROM_EXTRUDER 28  // X offset: -left  +right  [of the nozzle]
 #define Y_PROBE_OFFSET_FROM_EXTRUDER 0  // Y offset: -front +behind [the nozzle]
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -3.1   // Z offset: -below +above  [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -3.4   // Z offset: -below +above  [the nozzle]
 
 // X and Y axis travel speed (mm/m) between probes
 #define XY_PROBE_SPEED 8000
@@ -778,7 +777,7 @@ Recv: ok
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR true
+#define INVERT_Y_DIR false
 #define INVERT_Z_DIR false
 
 // Enable this option for Toshiba stepper drivers
@@ -811,8 +810,8 @@ Recv: ok
 #define Y_BED_SIZE 200
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -10
-#define Y_MIN_POS -3
+#define X_MIN_POS -4
+#define Y_MIN_POS -13
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
@@ -909,9 +908,9 @@ Recv: ok
 
   // Set the boundaries for probing (where the probe can reach).
   #define LEFT_PROBE_BED_POSITION 30
-  #define RIGHT_PROBE_BED_POSITION 190
-  #define FRONT_PROBE_BED_POSITION 10
-  #define BACK_PROBE_BED_POSITION 190
+  #define RIGHT_PROBE_BED_POSITION 170
+  #define FRONT_PROBE_BED_POSITION 25
+  #define BACK_PROBE_BED_POSITION 175
 
   // The Z probe minimum outer margin (to validate G29 parameters).
   #define MIN_PROBE_EDGE 10
