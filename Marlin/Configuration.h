@@ -490,10 +490,10 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
   
-  // Hypercube Evolution 5/12/18
-  #define DEFAULT_Kp 15.882385
-  #define DEFAULT_Ki 1.448924
-  #define DEFAULT_Kd 43.523693
+  // E3D Titan Aero 7/20/2020
+  #define DEFAULT_Kp 22.2
+  #define DEFAULT_Ki 1.08
+  #define DEFAULT_Kd 114
 
   // Ultimaker
   //#define DEFAULT_Kp 22.2
@@ -633,9 +633,9 @@
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
 #define USE_XMIN_PLUG
-// #define USE_YMIN_PLUG
+//#define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
-// #define USE_XMAX_PLUG
+//#define USE_XMAX_PLUG
 #define USE_YMAX_PLUG
 //#define USE_ZMAX_PLUG
 
@@ -989,7 +989,7 @@
  *
  * Specify a Probe position as { X, Y, Z }
  */
-#define NOZZLE_TO_PROBE_OFFSET { 21, 0, -1.3 }
+#define NOZZLE_TO_PROBE_OFFSET { 18, 47, -1.30 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
